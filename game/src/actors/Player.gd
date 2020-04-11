@@ -1,9 +1,7 @@
 extends Actor
 
-# this callback is called after the one in Actor.gd, it does not
-# overwrite the other one.
-
-# use this over _process for anything that needs to detect collision
+# use this over "_process" for anything that needs to detect collision
+# called in addition to the definition (if any) within the parent class
 func _physics_process(delta: float) -> void:
 	# _velocity.y will be negative if play is currently jumping
 	var is_jump_interrupted: = Input.is_action_just_released("jump") and _velocity.y < 0.0
